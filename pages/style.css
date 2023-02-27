@@ -36,5 +36,12 @@ h1 {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
 
+.content {
+    display: flex;
+}
+
+.cart {
+    margin-left: 20px;
 }
