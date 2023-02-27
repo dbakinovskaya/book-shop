@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 :root {
     --mainCol: #5c017d;
 }
@@ -15,7 +15,7 @@ body {
 main {
  width: 100%;
  max-width: 1280px;
- padding: 10px 40px;
+ padding: 0px 40px;
  margin: 0px auto;
  font-family: 'Teko', sans-serif;
 }
@@ -48,7 +48,7 @@ h1 {
 }
 
 h2 {
-    font-size: 50px;
+    font-size: 35px;
     font-weight: 700;
     margin: 0px;
     text-align: center;
@@ -63,42 +63,81 @@ h2 {
 .book__container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content:flex-start;
 }
 
 .book__content {
     background-color: #ffffff;
     border-radius: 10px;
     padding: 10px;
-    margin: 20px auto;
-    width: 260px;
+    margin: 5px;
+    width: 190px;
     border: 1px solid lightgrey;
     position: relative;
+    overflow: hidden;
+
 }
 
 .book__content img {
-    width: 240px;
-    height: 330px;
+    width: 170px;
+    height: 260px;
 }
 
 h3 {
-    font-size: 25px;
+    font-size: 17px;
     color: var(--mainCol);
     margin: 0px;
 }
 
 h4 {
-    font-size: 29px;
+    font-size: 22px;
     font-weight: 300;
     color: var(--mainCol);
     margin: 0px;
 }
 
 .price {
-    font-size: 29px;
+    font-size: 22px;
     font-weight: 300;
     margin: 0px;
     color: rgb(235, 51, 51);
+}
+
+.button__box {
+    display: flex;
+    align-items: end;
+    position: absolute;
+    bottom: 2.5px;
+    right: -100px;
+    transition: all .3s ease-out;
+}
+
+.book__content:hover .button__box {
+    right: 2.5px;
+}
+
+.btn {
+    border: 1px solid lightgrey;
+    background-color: aliceblue;
+    width: 40px;
+    height: 40px;
+    font-family: cursive;
+    font-size: 20px;
+    border-radius: 50%;
+    font-weight: 700;
+    margin: 2.5px;
+    transition: all .3s ease-out;
+}
+
+.info {
+    font-size: 11px;
+    text-align: center;
+    line-height: 10px;
+}
+
+.btn:hover {
+    background-color: rgb(204, 230, 254);
+    cursor: pointer;
 }
 
 

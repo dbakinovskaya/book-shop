@@ -30,12 +30,23 @@ function buildBookBox(book) {
     `
 }
 
+function buildButtons() {
+    return `
+        <button type="button" class="btn info">info</button>
+        <button type="button" class="btn">&#128722</button>
+    `
+}
+
 function renderContent() {
     for (let item of books){
         let book = document.createElement('div');
-        book.className = 'book__content'
-        let bookContent= buildBookBox(item);
+        book.className = 'book__content';
+        let buttonBox = document.createElement('div');
+        buttonBox.className = 'button__box';
+        buttonBox.innerHTML = buildButtons();
+        let bookContent = buildBookBox(item);
         book.innerHTML = bookContent;
+        book.append(buttonBox);
         bookContainer.append(book);
     }
 }
