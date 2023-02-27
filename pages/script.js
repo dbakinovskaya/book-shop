@@ -11,17 +11,22 @@ mainBox.append(content);
 const catalog = document.createElement('div');
 catalog.className = 'catalog box';
 catalog.innerHTML = '<h2>Book catalog</h2>';
+
 const cart = document.createElement('div');
 cart.className = 'cart box';
 cart.innerHTML = '<h2>Shop cart</h2>';
 content.append(catalog, cart);
+
+const bookContainer = document.createElement('div');
+bookContainer.className = 'book__container';
+catalog.append(bookContainer);
 
 function buildBookBox(book) {
     return `
         <img src = "${book.imageLink}" alt="book cover" class="book__cover">
         <h3>${book.title}</h3>
         <h4>${book.author}</h4>
-        <p>Price: ${book.price}</p>
+        <p class="price">Price: ${book.price}</p>
     `
 }
 
@@ -31,7 +36,7 @@ function renderContent() {
         book.className = 'book__content'
         let bookContent= buildBookBox(item);
         book.innerHTML = bookContent;
-        catalog.append(book);
+        bookContainer.append(book);
     }
 }
 

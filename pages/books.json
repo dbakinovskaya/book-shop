@@ -2,7 +2,7 @@
     {
     "author": "Douglas Crockford",
     "imageLink": "../assets/images/JavaScriptTheGoodParts.jpg",
-    "title": "JavaScript: The Good Parts: The Good Parts",
+    "title": "JavaScript: The Good Parts",
     "price": 30,
     "description": "With JavaScript: The Good Parts, you'll discover a beautiful, elegant, lightweight and highly expressive language that lets you create effective code, whether you're managing object libraries or just trying to get Ajax to run fast. If you develop sites or applications for the Web, this book is an absolute must"
     },
@@ -49,7 +49,7 @@
       "description": "If you want to learn how to build efficient React applications, this is your book. Ideal for web developers and software engineers who understand how JavaScript, CSS, and HTML work in the browser, this updated edition provides best practices and patterns for writing modern React code. No prior knowledge of React or functional JavaScript is necessary."
     },
     {
-      "author": "Bradley Meck Alex Young and Mike Cantelon",
+      "author": "Bradley Meck, Alex Young and Mike Cantelon",
       "imageLink": "../assets/images/NodejsinAction.jpg",
       "title": "Node.js in Action",
       "price": 38,
