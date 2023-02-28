@@ -72,7 +72,7 @@ h2 {
     padding: 10px;
     margin: 5px;
     width: 190px;
-    border: 1px solid lightgrey;
+    border: 1px solid #b3a8cb;
     position: relative;
     overflow: hidden;
 
@@ -117,7 +117,7 @@ h4 {
 }
 
 .btn {
-    border: 1px solid lightgrey;
+    border: 1px solid #b3a8cb;
     background-color: aliceblue;
     width: 40px;
     height: 40px;
@@ -136,7 +136,7 @@ h4 {
 }
 
 .btn:hover {
-    background-color: rgb(204, 230, 254);
+    background-color:#b3a8cb;
     cursor: pointer;
 }
 
