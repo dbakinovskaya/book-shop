@@ -32,22 +32,54 @@ function buildBookBox(book) {
 
 function buildButtons() {
     return `
-        <button type="button" class="btn info">info</button>
-        <button type="button" class="btn">&#128722</button>
+        <button class="btn open__modal">info</button>
+        <button class="btn">&#128722</button>
     `
+}
+
+function buildModalContent(book) {
+    return `
+        <img src = "${book.imageLink}" alt="book cover" class="book__cover__modal">
+        <div class='description'>
+            <h3>${book.title}</h3>
+            <p>${book.description}</p>
+        </div>
+        <button class='close__modal btn'> &#10006 </button>
+    `
+}
+
+function buildModal(content) {
+    const modContainer = document.createElement('div');
+    modContainer.className = 'modal__container';
+
+    const modBody = document.createElement('div');
+    modBody.className = 'modal__body';
+    modBody.innerHTML = buildModalContent(content);
+
+    modContainer.append(modBody);
+    return modContainer;
 }
 
 function renderContent() {
     for (let item of books){
         let book = document.createElement('div');
         book.className = 'book__content';
+
         let buttonBox = document.createElement('div');
         buttonBox.className = 'button__box';
         buttonBox.innerHTML = buildButtons();
+
         let bookContent = buildBookBox(item);
         book.innerHTML = bookContent;
         book.append(buttonBox);
-        bookContainer.append(book);
+
+        const modal = buildModal(item);
+
+        const bookWrapper = document.createElement('div');
+        bookWrapper.className = 'book__wrapper';
+        bookWrapper.append(book, modal);
+
+        bookContainer.append(bookWrapper);
     }
 }
 
@@ -66,3 +98,24 @@ async function getData() {
             renderContent();
 }
 getData();
+
+bookContainer.addEventListener('click', showModal);
+
+function showModal(event) {
+    let elem = event.target;
+    const body = document.querySelector('body');
+
+    if (elem.classList.contains('open__modal')) {
+        let parent = elem.closest('.book__wrapper');
+        let modal = parent.lastElementChild;
+        modal.style.display = 'block';
+        body.classList.add('modal__open');
+    }
+
+    if (elem.classList.contains('close__modal')) {
+        let modal = elem.closest('.modal__container');
+        modal.style.display = 'none';
+        body.classList.remove('modal__open');
+    }
+};
+

@@ -12,6 +12,11 @@ body {
     background-color: aliceblue;
 }
 
+.modal__open {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
 main {
  width: 100%;
  max-width: 1280px;
@@ -66,12 +71,17 @@ h2 {
     justify-content:flex-start;
 }
 
+.book__wrapper {
+    margin-bottom: 10px;
+}
+
 .book__content {
     background-color: #ffffff;
     border-radius: 10px;
     padding: 10px;
     margin: 5px;
     width: 190px;
+    height: 100%;
     border: 1px solid #b3a8cb;
     position: relative;
     overflow: hidden;
@@ -129,7 +139,7 @@ h4 {
     transition: all .3s ease-out;
 }
 
-.info {
+.open__modal {
     font-size: 11px;
     text-align: center;
     line-height: 10px;
@@ -140,6 +150,51 @@ h4 {
     cursor: pointer;
 }
 
+.modal__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #5310665d;
+    z-index: 100;
+    display: none;
+}
+
+.modal__body {
+    max-width: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color:  #f7f5fa;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.book__cover__modal {
+    max-width: 230px;
+    height: 340px;
+    width: 100%;
+    border-radius: 20px;
+    margin-right: 20px
+}
+
+.description p {
+    text-align: justify;
+}
+
+.close__modal {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+}
 
 .cart {
     margin-left: 20px;
