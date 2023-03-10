@@ -15,6 +15,16 @@ catalog.innerHTML = '<h2>Book catalog</h2>';
 const cart = document.createElement('div');
 cart.className = 'cart box';
 cart.innerHTML = '<h2>Shop cart</h2>';
+
+const cartContent = document.createElement('div');
+cartContent.className = 'cart__content';
+let total = 0;
+cartContent.innerHTML = `
+    <div class="book__list"></div>
+    <p class="total__sum">Total: <span id="total">${total}</span></p>
+`;
+cart.append(cartContent);
+
 content.append(catalog, cart);
 
 const bookContainer = document.createElement('div');
@@ -33,7 +43,7 @@ function buildBookBox(book) {
 function buildButtons() {
     return `
         <button class="btn open__modal">info</button>
-        <button class="btn">&#128722</button>
+        <button class="btn add__item">&#128722</button>
     `
 }
 
@@ -77,6 +87,7 @@ function renderContent() {
 
         const bookWrapper = document.createElement('div');
         bookWrapper.className = 'book__wrapper';
+        bookWrapper.setAttribute('data-id', books.indexOf(item));
         bookWrapper.append(book, modal);
 
         bookContainer.append(bookWrapper);
@@ -119,3 +130,38 @@ function showModal(event) {
     }
 };
 
+function buildCartItem(book) {
+    return `
+        <img src = "${book.imageLink}" alt="book cover" class="book__cover">
+        <div class='cart__description'>
+            <p>${book.title}</p>
+            <p>${book.author}</p>
+        </div>
+        <p>x<span class='quantity'>1</span></p>
+        <button class="delete__book btn"> &#10006 </button>
+    `
+}
+
+function addItem(event) {
+    let elem = event.target;
+    const parentElement = elem.closest('.book__wrapper');
+    const id = parentElement.dataset.id;
+    const bookList = document.querySelector('.book__list');
+    const newItem = bookList.querySelector(`[data-id='${id}']`);
+
+    if (elem.classList.contains('add__item')&& !newItem) {
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart__item';
+        cartItem.setAttribute('data-id', id);
+        cartItem.innerHTML = buildCartItem(books[id]);
+        bookList.append(cartItem);
+        total = books[id].price;
+    }
+
+    if (elem.classList.contains('add__item') && newItem) {
+        let itemQuantity = newItem.querySelector('.quantity');
+        ++itemQuantity.innerText;
+    }
+}
+
+bookContainer.addEventListener('click', addItem);
