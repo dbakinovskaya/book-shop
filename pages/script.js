@@ -18,10 +18,9 @@ cart.innerHTML = '<h2>Shop cart</h2>';
 
 const cartContent = document.createElement('div');
 cartContent.className = 'cart__content';
-let total = 0;
 cartContent.innerHTML = `
     <div class="book__list"></div>
-    <p class="total__sum">Total: <span id="total">${total}</span></p>
+    <p class="total__sum">Total: <span id="total">0</span></p>
 `;
 cart.append(cartContent);
 
@@ -155,12 +154,13 @@ function addItem(event) {
         cartItem.setAttribute('data-id', id);
         cartItem.innerHTML = buildCartItem(books[id]);
         bookList.append(cartItem);
-        total = books[id].price;
+        total.innerText = Number(total.innerText) + books[id].price;
     }
 
     if (elem.classList.contains('add__item') && newItem) {
         let itemQuantity = newItem.querySelector('.quantity');
         ++itemQuantity.innerText;
+        total.innerText = Number(total.innerText) + books[id].price;
     }
 }
 
