@@ -164,4 +164,22 @@ function addItem(event) {
     }
 }
 
+function deleteItem(event) {
+    let elem = event.target;
+    const parentElement = elem.closest('.cart__item');
+    const id = parentElement.dataset.id;
+    let quantity = parentElement.querySelector('.quantity');
+
+
+    if (elem.classList.contains('delete__book') && (quantity.innerText >= 1)) {
+        --quantity.innerText;
+        total.innerText = Number(total.innerText) - books[id].price;
+    }
+
+    if (elem.classList.contains('delete__book') && (quantity.innerText == 0)) {
+        parentElement.remove();
+    }
+}
+
 bookContainer.addEventListener('click', addItem);
+cartContent.addEventListener('click', deleteItem);
