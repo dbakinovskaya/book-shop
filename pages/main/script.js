@@ -1,7 +1,7 @@
 const mainBox = document.querySelector('main');
 
 const header = document.createElement('header');
-header.innerHTML = '<img src="../assets/icons/logoicon.png" alt="logo of website"> <h1>Book Shop</h1>';
+header.innerHTML = '<img src="../../assets/icons/logoicon.png" alt="logo of website"> <h1>Book Shop</h1>';
 mainBox.append(header);
 
 const content = document.createElement('div');
