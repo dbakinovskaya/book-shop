@@ -21,6 +21,7 @@ cartContent.className = 'cart__content';
 cartContent.innerHTML = `
     <div class="book__list"></div>
     <p class="total__sum">Total: <span id="total">0</span>&#36</p>
+    <a href="#" class="submit">Proceed to checkout</a>
 `;
 cart.append(cartContent);
 
@@ -163,6 +164,8 @@ function addItem(event) {
         ++itemQuantity.innerText;
         total.innerText = Number(total.innerText) + books[id].price;
     }
+
+    showConfirmBtn();
 }
 
 function deleteItem(event) {
@@ -179,6 +182,18 @@ function deleteItem(event) {
 
     if (elem.classList.contains('delete__book') && (quantity.innerText == 0)) {
         parentElement.remove();
+    }
+
+    showConfirmBtn();
+}
+
+function showConfirmBtn () {
+    const bookList = document.querySelector('.book__list');
+    const btn = document.querySelector('.submit');
+    if (bookList.querySelector('.cart__item')) {
+        btn.style.display = 'block';
+    } else {
+        btn.style.display = 'none';
     }
 }
 

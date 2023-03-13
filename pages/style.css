@@ -209,7 +209,7 @@ h4 {
 .cart {
     width: 100%;
     margin-left: 20px;
-    max-width: 340px;
+    max-width: 370px;
     border-radius: 10px;
 }
 
@@ -223,14 +223,35 @@ h4 {
 
 .book__list {
     min-height: 124px;
-    padding: 1px;
+    max-height: 452px;
+    overflow-y: auto;
 }
 
 .total__sum {
     margin: 0px 10px;
-    font-size: 25px;
+    padding-top: 8px;
+    font-size: 20px;
     border-top: .5px solid #b3a8cb;
     text-align: center;
+}
+
+.submit {
+    font-size: 20px;
+    text-decoration: none;
+    display: none;
+    text-align: center;
+    border: 1px solid #b3a8cb;
+    color: var(--mainCol);
+    width: fit-content;
+    margin: 0px auto;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: aliceblue;
+    transition: all .3s ease-out;
+}
+
+.submit:hover {
+    background-color: #b3a8cb;
 }
 
 .cart__item {
