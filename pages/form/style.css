@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;700&display=swap');
+
+:root {
+    --mainCol: #5c017d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+main {
+    width: 100%;
+    max-width: 1280px;
+    padding: 0px 40px;
+    margin: 0px auto;
+    font-family: 'Teko', sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+img {
+    width: 50px;
+}
+
+h1 {
+    font-size: 65px;
+    font-weight: 700;
+    vertical-align: middle;
+    padding-top: 13px;
+    margin-left: 15px;
+    background: linear-gradient(to right, #a390ca 0%, #5c017d 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 35px;
+    font-weight: 700;
+    color: var(--mainCol);
+    text-align: center;
+}
+
+form {
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+fieldset {
+    width: 270px;
+}
+
+legend {
+    font-size: 23px;
+    font-weight: 400;
+    color: var(--mainCol);
+}
+
+label {
+    font-weight: 300;
+    font-size: 21px;
+}
+
+.person label {
+    display: inline-block;
+    width: 60px;
+}
+
+.delivery label {
+    display: inline-block;
+    width: 55px;
+    line-height: 13px;
+}
+
+.btn__container {
+    width: 100%;
+}
+
+.submit {
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    border: 1px solid #b3a8cb;
+    color: var(--mainCol);
+    width: fit-content;
+    margin: 15px auto;
+    padding: 5px 25px;
+    border-radius: 5px;
+    background-color: white;
+    transition: all .3s ease-out;
+    font-family: 'Teko', sans-serif;
+}

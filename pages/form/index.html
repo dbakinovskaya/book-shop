@@ -4,12 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm order</title>
+    <title>Delivery form</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../assets/icons/logoicon.png" type="image/x-icon">
 </head>
 <body>
-    <main></main>
+    <main>
+        <header>
+            <img src="../../assets/icons/logoicon.png" alt="logo of website">
+            <h1>Book Shop</h1>
+        </header>
+        <div>
+            <h2>Make your order</h2>
+            <form>
+                <fieldset class="person">
+                    <legend>Personal information</legend>
+                    <label for="name">Name:</label> <input type="text" id="name" required> <br>
+                    <label for="surname">Surname:</label> <input type="text" id="surname" required> <br>
+                </fieldset>
+                <fieldset class="delivery">
+                    <legend>Delivery information</legend>
+                    <label for=""> Street: </label> <input type="text" required> <br>
+                    <label for=""> House: </label> <input type="text" required> <br>
+                    <label for=""> Flat: </label> <input type="text" required> <br>
+                    <label for="date"> Delivery date: </label> <input type="date" id="date" required>
+                </fieldset>
+                <fieldset class="payment">
+                    <legend>Payment method</legend>
+                    <input type="radio" name="payment" id=""> <label for=""> Card </label> <br>
+                    <input type="radio" name="payment" id=""> <label for=""> Cash </label>
+                </fieldset>
+                <fieldset class="gifts">
+                    <legend>Choose 2 gifts:</legend>
+                    <input type="checkbox" name="gift" id=""><label for=""> Pack as a gift </label> <br>
+                    <input type="checkbox" name="gift" id=""><label for=""> Add postcard </label> <br>
+                    <input type="checkbox" name="gift" id=""><label for=""> Provide 2% discount to the next time </label> <br>
+                    <input type="checkbox" name="gift" id=""><label for=""> Branded pen or pencil </label> <br>
+                </fieldset>
+                <div class="btn__container">
+                    <input type="submit" class="submit" value="Confirm order" disabled></button>
+                </div>
+            </form>
+        </div>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
