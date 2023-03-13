@@ -20,7 +20,7 @@ const cartContent = document.createElement('div');
 cartContent.className = 'cart__content';
 cartContent.innerHTML = `
     <div class="book__list"></div>
-    <p class="total__sum">Total: <span id="total">0</span></p>
+    <p class="total__sum">Total: <span id="total">0</span>&#36</p>
 `;
 cart.append(cartContent);
 
@@ -35,7 +35,7 @@ function buildBookBox(book) {
         <img src = "${book.imageLink}" alt="book cover" class="book__cover">
         <h3>${book.title}</h3>
         <h4>${book.author}</h4>
-        <p class="price">Price: ${book.price}</p>
+        <p class="price">Price: ${book.price}&#36</p>
     `
 }
 
@@ -87,6 +87,7 @@ function renderContent() {
         const bookWrapper = document.createElement('div');
         bookWrapper.className = 'book__wrapper';
         bookWrapper.setAttribute('data-id', books.indexOf(item));
+        bookWrapper.setAttribute('draggable', true);
         bookWrapper.append(book, modal);
 
         bookContainer.append(bookWrapper);
@@ -109,8 +110,6 @@ async function getData() {
 }
 getData();
 
-bookContainer.addEventListener('click', showModal);
-
 function showModal(event) {
     let elem = event.target;
     const body = document.querySelector('body');
@@ -130,15 +129,19 @@ function showModal(event) {
 };
 
 function buildCartItem(book) {
-    return `
+    const cartItem = document.createElement('div');
+    cartItem.className = 'cart__item';
+    cartItem.innerHTML = `
         <img src = "${book.imageLink}" alt="book cover" class="book__cover">
         <div class='cart__description'>
             <p>${book.title}</p>
             <p>${book.author}</p>
+            <p>Price: ${book.price}&#36</p>
         </div>
         <p>x<span class='quantity'>1</span></p>
         <button class="delete__book btn"> &#10006 </button>
     `
+    return cartItem;
 }
 
 function addItem(event) {
@@ -149,11 +152,9 @@ function addItem(event) {
     const newItem = bookList.querySelector(`[data-id='${id}']`);
 
     if (elem.classList.contains('add__item')&& !newItem) {
-        const cartItem = document.createElement('div');
-        cartItem.className = 'cart__item';
-        cartItem.setAttribute('data-id', id);
-        cartItem.innerHTML = buildCartItem(books[id]);
-        bookList.append(cartItem);
+        const book = buildCartItem(books[id]);
+        book.setAttribute('data-id', id);
+        bookList.append(book);
         total.innerText = Number(total.innerText) + books[id].price;
     }
 
@@ -165,7 +166,7 @@ function addItem(event) {
 }
 
 function deleteItem(event) {
-    let elem = event.target;
+    const elem = event.target;
     const parentElement = elem.closest('.cart__item');
     const id = parentElement.dataset.id;
     let quantity = parentElement.querySelector('.quantity');
@@ -181,5 +182,46 @@ function deleteItem(event) {
     }
 }
 
+bookContainer.addEventListener('click', showModal);
 bookContainer.addEventListener('click', addItem);
 cartContent.addEventListener('click', deleteItem);
+
+bookContainer.addEventListener('dragstart', function(event){
+    const elem = event.target;
+    if(elem.classList.contains('book__wrapper')) {
+        elem.setAttribute('id', 'dragging');
+    }
+});
+
+bookContainer.addEventListener('dragend', function(event){
+    const elem = event.target;
+    elem.removeAttribute('id');
+});
+
+cartContent.addEventListener('dragover', function(event){
+    event.preventDefault();
+});
+
+cartContent.addEventListener('drop', function(event){
+    event.preventDefault();
+    const currentBook = document.querySelector('#dragging');
+    const id = currentBook.dataset.id;
+    const bookList = document.querySelector('.book__list');
+    const newItem = bookList.querySelector(`[data-id='${id}']`);
+
+    if (!newItem) {
+        const book = buildCartItem(books[id]);
+        book.setAttribute('data-id', id);
+        bookList.append(book);
+        total.innerText = Number(total.innerText) + books[id].price;
+        event.preventDefault();
+
+    }
+
+    if (newItem) {
+        let itemQuantity = newItem.querySelector('.quantity');
+        ++itemQuantity.innerText;
+        total.innerText = Number(total.innerText) + books[id].price;
+        event.preventDefault();
+    }
+});

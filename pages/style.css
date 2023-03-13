@@ -80,34 +80,40 @@ h2 {
     border-radius: 10px;
     padding: 10px;
     margin: 5px;
-    width: 190px;
+    width: 130px;
     height: 100%;
     border: 1px solid #b3a8cb;
     position: relative;
     overflow: hidden;
+    cursor: grab!important;
 
 }
 
 .book__content img {
-    width: 170px;
-    height: 260px;
+    width: 108px;
+    height: 160px;
+    pointer-events: none;
+    margin: 0px auto;
 }
 
 h3 {
-    font-size: 17px;
+    font-size: 11px;
+    line-height: 11px;
     color: var(--mainCol);
     margin: 0px;
 }
 
 h4 {
-    font-size: 22px;
+    font-size: 14px;
     font-weight: 300;
     color: var(--mainCol);
     margin: 0px;
+    line-height: 10px;
+    padding-top: 5px;
 }
 
 .price {
-    font-size: 22px;
+    font-size: 17px;
     font-weight: 300;
     margin: 0px;
     color: rgb(235, 51, 51);
@@ -129,10 +135,10 @@ h4 {
 .btn {
     border: 1px solid #b3a8cb;
     background-color: aliceblue;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     font-family: cursive;
-    font-size: 20px;
+    font-size: 12px;
     border-radius: 50%;
     font-weight: 700;
     margin: 2.5px;
@@ -179,12 +185,16 @@ h4 {
     max-width: 230px;
     height: 340px;
     width: 100%;
-    border-radius: 20px;
     margin-right: 20px
 }
 
 .description p {
     text-align: justify;
+}
+
+.description h3 {
+    font-size: 22px;
+    line-height: 16px;
 }
 
 .close__modal {
@@ -236,11 +246,11 @@ h4 {
 
 .cart__description p{
     width: 205px;
-    line-height: 17px;
+    line-height: 11px;
     margin: 0;
     font-weight: 300;
-    font-size: 20px;
-    padding: 5px 10px;
+    font-size: 15px;
+    padding: 3px 10px;
 }
 
 .delete__book {
@@ -250,4 +260,11 @@ h4 {
     position: absolute;
     top: -10px;
     right: -10px;
+}
+
+#dragging .book__content {
+    border: 2px solid var(--mainCol);
+    padding: 8.9px;
+    background-color:#b3a8cb76;
+    cursor: move!important;
 }
