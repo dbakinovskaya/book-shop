@@ -69,6 +69,11 @@ legend {
 label {
     font-weight: 300;
     font-size: 21px;
+    vertical-align: middle;
+}
+
+input {
+    margin: 8px 0px;
 }
 
 .person label {
@@ -79,7 +84,7 @@ label {
 .delivery label {
     display: inline-block;
     width: 55px;
-    line-height: 13px;
+    line-height: 16px;
 }
 
 .btn__container {
@@ -100,4 +105,21 @@ label {
     background-color: white;
     transition: all .3s ease-out;
     font-family: 'Teko', sans-serif;
+}
+
+.error {
+    border: 2px solid red;
+    border-radius: 2px;
+}
+
+.error:focus-visible {
+    outline: none;
+}
+
+.error__msg {
+    font-size: 15px;
+    font-weight: 100;
+    position: absolute;
+    top: 0px;
+    color: red;
 }

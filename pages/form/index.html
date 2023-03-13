@@ -19,8 +19,8 @@
             <form>
                 <fieldset class="person">
                     <legend>Personal information</legend>
-                    <label for="name">Name:</label> <input type="text" id="name" required> <br>
-                    <label for="surname">Surname:</label> <input type="text" id="surname" required> <br>
+                    <label for="name">Name:</label> <input type="text" id="name" required onblur="checkPersonalInfo(this)"> <br>
+                    <label for="surname">Surname:</label> <input type="text" id="surname" required onblur="checkPersonalInfo(this)"> <br>
                 </fieldset>
                 <fieldset class="delivery">
                     <legend>Delivery information</legend>
