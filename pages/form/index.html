@@ -31,15 +31,15 @@
                 </fieldset>
                 <fieldset class="payment">
                     <legend>Payment method</legend>
-                    <input type="radio" name="payment" id=""> <label for=""> Card </label> <br>
-                    <input type="radio" name="payment" id=""> <label for=""> Cash </label>
+                    <input type="radio" name="payment" id="card" value="card" checked> <label for="card"> Card </label> <br>
+                    <input type="radio" name="payment" id="cash" value="cash"> <label for="cash"> Cash </label>
                 </fieldset>
-                <fieldset class="gifts">
+                <fieldset class="gifts" onchange="checkQuantity()">
                     <legend>Choose 2 gifts:</legend>
-                    <input type="checkbox" name="gift" id=""><label for=""> Pack as a gift </label> <br>
-                    <input type="checkbox" name="gift" id=""><label for=""> Add postcard </label> <br>
-                    <input type="checkbox" name="gift" id=""><label for=""> Provide 2% discount to the next time </label> <br>
-                    <input type="checkbox" name="gift" id=""><label for=""> Branded pen or pencil </label> <br>
+                    <input type="checkbox" name="gift" value="pack as a gift" id="pack"><label for="pack"> Pack as a gift </label> <br>
+                    <input type="checkbox" name="gift" value="free postcard" id="postcard"><label for="postcard"> Add postcard </label> <br>
+                    <input type="checkbox" name="gift" value="2% discount to the next time" id="discount"><label for="discount"> Provide 2% discount to the next time </label> <br>
+                    <input type="checkbox" name="gift" value="branded pen or pencil" id="pen"><label for="pen"> Branded pen or pencil </label> <br>
                 </fieldset>
                 <div class="btn__container">
                     <input type="submit" class="submit disabled" value="Confirm order" disabled></button>

@@ -54,3 +54,23 @@ function checkDeliveryInfo(field) {
 
     (streetReq || houseReq || flatReq || dateReq) ? showErrorMsg(field) : deleteErrorMsg(field);
 }
+
+function checkQuantity() {
+    changeStatus();
+
+    let checkedGifts = document.querySelectorAll('[data-status="checked"]');
+    let uncheckedGifts = document.querySelectorAll('[data-status="unchecked"]');
+
+    if (checkedGifts.length >= 2) {
+        uncheckedGifts.forEach((gift) => gift.disabled = 'true');
+    };
+
+    if (uncheckedGifts.length > 2) {
+        uncheckedGifts.forEach((gift) => gift.removeAttribute('disabled'));
+    }
+}
+
+function changeStatus() {
+    let gifts = document.querySelectorAll('[name="gift"]');
+    gifts.forEach((gift) => (gift.checked) ? (gift.dataset.status = 'checked') : (gift.dataset.status = 'unchecked'));
+}
