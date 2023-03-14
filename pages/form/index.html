@@ -24,10 +24,10 @@
                 </fieldset>
                 <fieldset class="delivery">
                     <legend>Delivery information</legend>
-                    <label for=""> Street: </label> <input type="text" required> <br>
-                    <label for=""> House: </label> <input type="text" required> <br>
-                    <label for=""> Flat: </label> <input type="text" required> <br>
-                    <label for="date"> Delivery date: </label> <input type="date" id="date" required>
+                    <label for="street"> Street: </label> <input id="street" type="text" required onblur="checkDeliveryInfo(this)"> <br>
+                    <label for="house"> House: </label> <input id="house" type="text" required onblur="checkDeliveryInfo(this)"> <br>
+                    <label for="flat"> Flat: </label> <input id="flat" type="text" required onblur="checkDeliveryInfo(this)"> <br>
+                    <label for="date"> Delivery date: </label> <input type="date" id="date" required onblur="checkDeliveryInfo(this)">
                 </fieldset>
                 <fieldset class="payment">
                     <legend>Payment method</legend>
@@ -42,7 +42,7 @@
                     <input type="checkbox" name="gift" id=""><label for=""> Branded pen or pencil </label> <br>
                 </fieldset>
                 <div class="btn__container">
-                    <input type="submit" class="submit" value="Confirm order" disabled></button>
+                    <input type="submit" class="submit disabled" value="Confirm order" disabled></button>
                 </div>
             </form>
         </div>

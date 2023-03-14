@@ -87,6 +87,11 @@ input {
     line-height: 16px;
 }
 
+#date {
+    width: 170px;
+    text-align: center;
+}
+
 .btn__container {
     width: 100%;
 }
@@ -105,6 +110,11 @@ input {
     background-color: white;
     transition: all .3s ease-out;
     font-family: 'Teko', sans-serif;
+}
+
+.disabled {
+    color: lightgrey;
+    border-color: grey;
 }
 
 .error {
