@@ -19,7 +19,7 @@
             <form id="form">
                 <fieldset class="person" id="person">
                     <legend>Personal information</legend>
-                    <label for="name">Name:</label> <input type="text" id="firstname" required> <br>
+                    <label for="firstname">Name:</label> <input type="text" id="firstname" required> <br>
                     <label for="surname">Surname:</label> <input type="text" id="surname" required> <br>
                 </fieldset>
                 <fieldset class="delivery" id="delivery">
@@ -34,7 +34,7 @@
                     <input type="radio" name="payment" id="card" value="card" checked> <label for="card"> Card </label> <br>
                     <input type="radio" name="payment" id="cash" value="cash"> <label for="cash"> Cash </label>
                 </fieldset>
-                <fieldset class="gifts" onchange="checkQuantity()">
+                <fieldset class="gifts" id="gifts" onchange="checkQuantity()">
                     <legend>Choose 2 gifts:</legend>
                     <input type="checkbox" name="gift" value="pack as a gift" id="pack"><label for="pack"> Pack as a gift </label> <br>
                     <input type="checkbox" name="gift" value="free postcard" id="postcard"><label for="postcard"> Add postcard </label> <br>
@@ -42,7 +42,7 @@
                     <input type="checkbox" name="gift" value="branded pen or pencil" id="pen"><label for="pen"> Branded pen or pencil </label> <br>
                 </fieldset>
                 <div class="btn__container">
-                    <input id="submit" type="submit" class="submit" value="Confirm order" disabled onclick="return false"></button>
+                    <input id="submit" type="submit" class="submit" value="Confirm order" disabled onclick="return false">
                 </div>
             </form>
         </div>
