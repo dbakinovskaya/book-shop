@@ -16,7 +16,7 @@
         </header>
         <div>
             <h2>Make your order</h2>
-            <form>
+            <form id="form">
                 <fieldset class="person">
                     <legend>Personal information</legend>
                     <label for="name">Name:</label> <input type="text" id="name" required onblur="checkPersonalInfo(this)"> <br>
@@ -42,7 +42,7 @@
                     <input type="checkbox" name="gift" value="branded pen or pencil" id="pen"><label for="pen"> Branded pen or pencil </label> <br>
                 </fieldset>
                 <div class="btn__container">
-                    <input type="submit" class="submit disabled" value="Confirm order" disabled></button>
+                    <input id="submit" type="submit" class="submit disabled" value="Confirm order" disabled></button>
                 </div>
             </form>
         </div>

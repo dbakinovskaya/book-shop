@@ -15,12 +15,12 @@ function showErrorMsg(elem) {
     const errorMsg = buildError(elem);
 
     elem.classList.add('error');
-    elem.after(errorMsg);
+    if (elem.nextSibling.className !== 'error__msg') elem.after(errorMsg);
 }
 
 function deleteErrorMsg(elem) {
     elem.classList.remove('error');
-    elem.nextSibling.remove();
+    if (elem.nextSibling.className === 'error__msg') elem.nextSibling.remove();
 }
 
 function checkPersonalInfo(field) {
@@ -74,3 +74,37 @@ function changeStatus() {
     let gifts = document.querySelectorAll('[name="gift"]');
     gifts.forEach((gift) => (gift.checked) ? (gift.dataset.status = 'checked') : (gift.dataset.status = 'unchecked'));
 }
+
+function showConfirmBtn() {
+    const empty = checkEmptyField();
+    const valid = checkErrors();
+
+    if (empty && valid) {
+        submit.classList.remove('disabled');
+        submit.removeAttribute('disabled')
+    }
+
+    if (!empty || !valid) {
+        submit.setAttribute('disabled','true');
+        submit.classList.add('disabled');
+    }
+}
+
+function checkEmptyField() {
+    const elems = form.querySelectorAll('[required]');
+
+    for (elem of elems) {
+        if (!elem.value)  {
+            return;
+        }
+    }
+    return true;
+}
+
+function checkErrors() {
+    const errors = form.querySelectorAll('.error__msg');
+    if (errors.length != 0) return;
+    return true;
+}
+
+form.addEventListener('focusout', showConfirmBtn);
