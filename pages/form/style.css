@@ -87,6 +87,10 @@ input {
     line-height: 16px;
 }
 
+.person input, .delivery input {
+    width: 170px;
+}
+
 #date {
     width: 170px;
     text-align: center;
