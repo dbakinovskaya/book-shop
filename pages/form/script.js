@@ -25,7 +25,7 @@ function deleteErrorMsg(elem) {
 
 function checkPersonalInfo(event) {
     const field = event.target;
-    const nameReq = (field.id === 'name') && (field.value.length < 4);
+    const nameReq = (field.id === 'firstname') && (field.value.length < 4);
     const surnameReq = (field.id === 'surname') && (field.value.length < 5);
     const number = /[0-9]/.test(field.value);
     const space = /\s/.test(field.value);
@@ -112,3 +112,18 @@ function checkErrors() {
 }
 
 form.addEventListener('focusout', showConfirmBtn);
+
+function buildMessage() {
+    const paymentmethod = payment.querySelector('[checked]');
+    return  `<div class='result__message'>
+            <h2>Thanks, your order created!</h2>
+            <p>The delivery address is ${street.value} street house ${house.value} flat ${flat.value}. Customer ${firstname.value} ${surname.value}.</p>
+            <p>Payment method: ${paymentmethod.value}.</p>
+        </div>`;
+}
+
+function showResult() {
+    container.innerHTML = buildMessage();
+}
+
+submit.addEventListener('click', showResult);
