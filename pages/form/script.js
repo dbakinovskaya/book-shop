@@ -23,7 +23,8 @@ function deleteErrorMsg(elem) {
     if (elem.nextSibling.className === 'error__msg') elem.nextSibling.remove();
 }
 
-function checkPersonalInfo(field) {
+function checkPersonalInfo(event) {
+    const field = event.target;
     const nameReq = (field.id === 'name') && (field.value.length < 4);
     const surnameReq = (field.id === 'surname') && (field.value.length < 5);
     const number = /[0-9]/.test(field.value);
@@ -31,6 +32,8 @@ function checkPersonalInfo(field) {
 
     (nameReq || surnameReq || number || space) ? showErrorMsg(field) : deleteErrorMsg(field);
 }
+
+person.addEventListener('focusout', checkPersonalInfo);
 
 function getDeliveryDate() {
     const date = new Date();
@@ -46,7 +49,8 @@ function getDeliveryDate() {
 }
 date.setAttribute('min', getDeliveryDate());
 
-function checkDeliveryInfo(field) {
+function checkDeliveryInfo(event) {
+    const field = event.target;
     const streetReq = ((field.id === 'street') && (field.value.length < 5));
     const houseReq = ((field.id === 'house') && (field.value <= 0 || isNaN(field.value)));
     const flatReq = ((field.id === 'flat') && (field.value.startsWith('-') || isNaN(field.value.replace('-','')) || (field.value.replace('-','')) <= 0));
@@ -54,6 +58,8 @@ function checkDeliveryInfo(field) {
 
     (streetReq || houseReq || flatReq || dateReq) ? showErrorMsg(field) : deleteErrorMsg(field);
 }
+
+delivery.addEventListener('focusout', checkDeliveryInfo);
 
 function checkQuantity() {
     changeStatus();
@@ -80,13 +86,11 @@ function showConfirmBtn() {
     const valid = checkErrors();
 
     if (empty && valid) {
-        submit.classList.remove('disabled');
         submit.removeAttribute('disabled')
     }
 
     if (!empty || !valid) {
         submit.setAttribute('disabled','true');
-        submit.classList.add('disabled');
     }
 }
 

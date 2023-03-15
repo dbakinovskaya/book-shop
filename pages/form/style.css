@@ -112,9 +112,16 @@ input {
     font-family: 'Teko', sans-serif;
 }
 
-.disabled {
+.submit:hover {
+    background-color: #b3a8cb;
+    cursor: pointer;
+}
+
+.submit:disabled {
     color: lightgrey;
     border-color: grey;
+    background-color: white;
+    cursor: not-allowed;
 }
 
 .error {
