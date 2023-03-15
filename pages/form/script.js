@@ -115,11 +115,29 @@ form.addEventListener('focusout', showConfirmBtn);
 
 function buildMessage() {
     const paymentmethod = payment.querySelector('[checked]');
+    const giftList = buildGiftList();
     return  `<div class='result__message'>
             <h2>Thanks, your order created!</h2>
-            <p>The delivery address is ${street.value} street house ${house.value} flat ${flat.value}. Customer ${firstname.value} ${surname.value}.</p>
+            <p>The delivery address: ${street.value} street, house ${house.value}, flat ${flat.value}.</p>
+            <p>Customer: ${firstname.value} ${surname.value}.</p>
             <p>Payment method: ${paymentmethod.value}.</p>
+            <p>Your gifts: ${giftList}.</p>
         </div>`;
+}
+
+function buildGiftList() {
+    const giftElem = gifts.querySelectorAll('input');
+    const list = [];
+
+    giftElem.forEach((gift)=> {
+        if (gift.checked) list.push(gift.value);
+    });
+
+    if (list.length == 0) {
+        return('no gifts');
+    } else {
+        return(list.join(', '));
+    }
 }
 
 function showResult() {

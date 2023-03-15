@@ -145,10 +145,17 @@ input {
     font-size: 35px;
     font-weight: 300;
     width: 450px;
-    text-align: center;
     margin: 0px auto;
     background-color: white;
     border: 1px solid var(--mainCol);
     padding: 15px;
     border-radius: 10px;
+}
+
+.result__message h2 {
+    text-align: center;
+}
+
+.result__message p {
+    width: 100%;
 }
