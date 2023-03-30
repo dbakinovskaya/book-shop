@@ -239,4 +239,6 @@ cartContent.addEventListener('drop', function(event){
         total.innerText = Number(total.innerText) + books[id].price;
         event.preventDefault();
     }
+
+    showConfirmBtn();
 });
