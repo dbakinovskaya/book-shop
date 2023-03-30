@@ -54,7 +54,7 @@ function checkDeliveryInfo(event) {
     const streetReq = ((field.id === 'street') && (field.value.length < 5));
     const houseReq = ((field.id === 'house') && (field.value <= 0 || isNaN(field.value)));
     const flatReq = ((field.id === 'flat') && (field.value.startsWith('-') || isNaN(field.value.replace('-','')) || (field.value.replace('-','')) <= 0));
-    const dateReq = ((field.id === 'date') && !field.value);
+    const dateReq = ((field.id === 'date') && (!field.value || field.value < getDeliveryDate()));
 
     (streetReq || houseReq || flatReq || dateReq) ? showErrorMsg(field) : deleteErrorMsg(field);
 }
